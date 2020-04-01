@@ -3,9 +3,17 @@ import { Switch, Route } from 'react-router-dom'
 import { Home, Shows } from './pages'
 import { Navbar, Header } from './components'
 import { GlobalStyle } from './styles/globalStyles'
+import styled from 'styled-components'
+
+const AppContainer = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const App = () => (
-  <div className="App">
+  <AppContainer>
     <GlobalStyle />
     <Header>
       <Navbar />
@@ -18,7 +26,7 @@ const App = () => (
         <Shows />
       </Route>
     </Switch>
-  </div>
+  </AppContainer>
 )
 
 export default App

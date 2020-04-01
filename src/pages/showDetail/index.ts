@@ -1,0 +1,1 @@
+export { ShowDetail } from './showDetail';
