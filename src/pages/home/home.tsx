@@ -1,14 +1,16 @@
-import React from 'react'
-import heroImage from '../../images/heroImage.jpg'
-import { AnchorButton } from '../../components'
-import { PageContainer, Heading, Image } from './styles'
+import React from 'react';
+import heroImage from '../../images/heroImage.jpg';
+import { PageContainer } from '../../components';
+import { Heading, Image, Container, AnchorButton } from './styles';
 
-export const Home = () => (
+export const Home: React.FC = () => (
   <PageContainer>
-    <Heading>Welcome to the Show Catalog</Heading>
-    <Image src={heroImage}></Image>
-    <AnchorButton to="/shows" role="button">
-      Search shows
-    </AnchorButton>
+    <Container>
+      <Heading>Welcome to the Show Catalog</Heading>
+      <Image src={heroImage}></Image>
+      <AnchorButton to="/shows" role="button">
+        Search shows
+      </AnchorButton>
+    </Container>
   </PageContainer>
-)
+);

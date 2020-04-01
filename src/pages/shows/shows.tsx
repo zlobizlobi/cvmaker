@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import { SearchBar, ShowItem } from '../../components';
+import { SearchBar, ShowItem, PageContainer } from '../../components';
 import { useDebounce } from '../../hooks';
-import { PageContainer, ShowItemContainer } from './styles';
+import { ShowItemContainer } from './styles';
 import { IShowItem } from '../../types';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { ShowDetail } from '../showDetail';
@@ -51,7 +51,7 @@ export const Shows = () => {
           </ShowItemContainer>
         </PageContainer>
       </Route>
-      <Route path={`${url}/:movieId`} render={() => <ShowDetail />} />
+      <Route path={`${url}/:movieId`} render={() => <ShowDetail showItems={showItems} />} />
     </Switch>
   );
 };

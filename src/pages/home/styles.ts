@@ -1,21 +1,24 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { AnchorButton as AnchorButtonComponent } from '../../components';
 
-export const PageContainer = styled.section`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-`
+`;
 
 export const Heading = styled.h1`
   font-weight: 900;
   margin-bottom: 20px;
-`
+`;
 
 export const Image = styled.img`
   max-height: 500px;
   max-width: 900px;
   object-fit: cover;
-`
+`;
+
+export const AnchorButton = styled(AnchorButtonComponent)`
+  && {
+    align-self: center;
+  }
+`;

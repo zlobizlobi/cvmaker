@@ -10,17 +10,12 @@ interface IProps {
 
 export const ShowItem: React.FC<IProps> = ({ showItem, url }) => {
   const {
-    show: { name, genres, image },
+    show: { name, genres, image, id },
   } = showItem;
 
   const imgSrc = image && image.original;
 
   const splittedGenres = genres.join(', ');
-
-  const slug = name
-    .toLowerCase()
-    .split(' ')
-    .join('-');
 
   return (
     <>
@@ -37,7 +32,7 @@ export const ShowItem: React.FC<IProps> = ({ showItem, url }) => {
               <span>{splittedGenres}</span>
             </Row>
           </div>
-          <Button to={`${url}/${slug}`}>See details</Button>
+          <Button to={`${url}/${id}`}>See details</Button>
         </RowContainer>
       </Container>
     </>

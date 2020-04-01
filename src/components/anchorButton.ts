@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const AnchorButton = styled(Link)`
   background-color: white;
@@ -12,10 +12,10 @@ export const AnchorButton = styled(Link)`
   margin-top: 20px;
 
   :hover {
-    background-color: black;
+    background-color: #000;
     color: #fff;
   }
 
   text-transform: uppercase;
   text-decoration: none;
-`
+`;
