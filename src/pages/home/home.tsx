@@ -7,7 +7,7 @@ export const Home: React.FC = () => (
   <PageContainer>
     <Container>
       <Heading>Welcome to the Show Catalog</Heading>
-      <Image src={heroImage}></Image>
+      <Image src={heroImage} />
       <AnchorButton to="/shows" role="button">
         Search shows
       </AnchorButton>

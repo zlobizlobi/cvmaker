@@ -13,10 +13,10 @@ export const useCast = (showId: string | undefined): IPerson[] => {
   useEffect(() => {
     const fetchCast = async () => {
       try {
-        const cast = await fetch(`https://api.tvmaze.com/shows/${showId}/cast`, {
+        const castFromAPI = await fetch(`https://api.tvmaze.com/shows/${showId}/cast`, {
           method: 'GET',
         });
-        const parsedResult = await cast.json();
+        const parsedResult = await castFromAPI.json();
         setCast(parsedResult);
       } catch (err) {
         console.log(err);

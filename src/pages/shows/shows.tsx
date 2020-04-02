@@ -11,18 +11,20 @@ export const Shows = () => {
 
   const debouncedSearchValue = useDebounce(searchValue, 500);
 
-  let { path } = useRouteMatch();
+  const { path } = useRouteMatch();
 
   const shows = useShows(debouncedSearchValue);
 
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setSearchValue(e.target.value);
+  };
+
   return (
     <>
-      <Route exact path={path}>
+      <Route exact={true} path={path}>
         <PageContainer>
           <form action="">
-            <SearchBar
-              onChange={(e: ChangeEvent<HTMLInputElement>): void => setSearchValue(e.target.value)}
-            />
+            <SearchBar onChange={handleOnChange} />
           </form>
           {!shows.length && <span>Oops, no results "yet"</span>}
           <ShowItemContainer>

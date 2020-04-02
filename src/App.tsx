@@ -19,7 +19,7 @@ const App = () => (
       <Navbar />
     </Header>
     <Switch>
-      <Route exact path="/">
+      <Route exact={true} path="/">
         <Home />
       </Route>
       <Route path="/shows">

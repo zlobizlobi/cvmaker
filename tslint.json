@@ -4,7 +4,7 @@
   "rules": {
     "prettier": true,
     "no-empty-interface": true,
-    "no-default-import": true,
+    "no-default-import": false,
     "no-duplicate-imports": true,
     "no-require-imports": true,
     "interface-name": true,
@@ -13,6 +13,7 @@
     "no-async-without-await": true,
     "no-unused-expression": true,
     "no-unused-variable": true,
-    "triple-equals": true
+    "triple-equals": true,
+    "no-console": false
   }
 }

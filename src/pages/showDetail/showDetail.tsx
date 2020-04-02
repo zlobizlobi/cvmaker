@@ -7,7 +7,7 @@ import { IPerson } from '../../types';
 import { stripHtml } from '../../helpers';
 
 export const ShowDetail: React.FC = () => {
-  let { showId } = useParams();
+  const { showId } = useParams();
 
   const cast = useCast(showId);
 

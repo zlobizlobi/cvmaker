@@ -17,7 +17,7 @@ export const ShowItem: React.FC<IProps> = ({ showItem }) => {
 
   const splittedGenres = genres.join(', ');
 
-  let { url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
     <>

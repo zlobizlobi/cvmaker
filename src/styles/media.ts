@@ -1,25 +1,25 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
-interface BreakPoints {
-  xs: number
-  sm: number
-  md: number
-  lg: number
-  xl: number
-  xxl: number
+interface IBreakPoints {
+  xs: number;
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+  xxl: number;
 }
 
-export const breakpoints: BreakPoints = {
+export const breakpoints: IBreakPoints = {
   xs: 320,
   sm: 480,
   md: 600,
   lg: 801,
   xl: 1025,
   xxl: 1450,
-}
+};
 
-type BreakpointKeys = keyof BreakPoints
-type Media = { [key in BreakpointKeys]: (css: string) => string }
+type BreakpointKeys = keyof IBreakPoints;
+type Media = { [key in BreakpointKeys]: (css: string) => string };
 
 export const media = Object.entries(breakpoints).reduce((acc, [label, size]: [string, number]) => {
   return {
@@ -29,5 +29,5 @@ export const media = Object.entries(breakpoints).reduce((acc, [label, size]: [st
         ${breakpointCss}
       }
     `,
-  }
-}, {}) as Media
+  };
+}, {}) as Media;
