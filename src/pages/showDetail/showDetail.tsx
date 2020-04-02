@@ -23,7 +23,7 @@ export const ShowDetail: React.FC = () => {
     <PageContainer>
       <RowContainer>
         <ColumnContainer>
-          <Image src={imgSrc} />
+          <Image src={imgSrc && imgSrc} />
           <Heading>Cast</Heading>
           {cast.map(({ person }: IPerson) => (
             <span key={person.id}>{person.name}</span>
