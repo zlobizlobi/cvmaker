@@ -11,19 +11,17 @@ export const useCast = (showId: string | undefined): IPerson[] => {
   const [cast, setCast] = useState<IPerson[]>([]);
 
   useEffect(() => {
-    const fetchCast = () => {
-      fetch(`http://api.tvmaze.com/shows/${showId}/cast`, {
-        method: 'GET',
-      })
-        .then(async (result: any) => {
-          const cast = await result.json();
-          setCast(cast);
-        })
-        .catch(err => {
-          console.log(err);
+    const fetchCast = async () => {
+      try {
+        const cast = await fetch(`https://api.tvmaze.com/shows/${showId}/cast`, {
+          method: 'GET',
         });
+        const parsedResult = await cast.json();
+        setCast(parsedResult);
+      } catch (err) {
+        console.log(err);
+      }
     };
-
     fetchCast();
   }, [showId]);
 

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Nav, NavList, NavLink } from './styles'
+import React from 'react';
+import { Nav, NavList, NavLink } from './styles';
 
 export const Navbar: React.FC = () => (
   <Nav>
@@ -9,4 +9,4 @@ export const Navbar: React.FC = () => (
       <NavLink to="/shows">Shows</NavLink>
     </NavList>
   </Nav>
-)
+);

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { Container, Label, Input } from './styles';
 
 interface IProps {
-  onChange: (e: any) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const SearchBar: React.FC<IProps> = ({ onChange }) => (

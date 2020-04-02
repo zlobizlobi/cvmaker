@@ -7,7 +7,7 @@ export const useShows = (debouncedSearchValue: string): IShowItem[] => {
   useEffect(() => {
     const fetchSearchInput = async () => {
       try {
-        const shows = await fetch(`http://api.tvmaze.com/search/shows?q=${debouncedSearchValue}`, {
+        const shows = await fetch(`https://api.tvmaze.com/search/shows?q=${debouncedSearchValue}`, {
           method: 'GET',
         });
         const parsedShows = await shows.json();

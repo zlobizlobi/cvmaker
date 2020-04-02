@@ -13,7 +13,7 @@ export const useShow = (showId: string | undefined): IShow => {
   useEffect(() => {
     const fetchShow = async () => {
       try {
-        const show = await fetch(`http://api.tvmaze.com/shows/${showId}`);
+        const show = await fetch(`https://api.tvmaze.com/shows/${showId}`);
         const parsedShow = await show.json();
         setShow(parsedShow);
       } catch (err) {
