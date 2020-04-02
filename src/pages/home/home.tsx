@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '../../images/heroImage.jpg';
+import heroImage from '../../images/download.jpeg';
 import { PageContainer } from '../../components';
 import { Heading, Image, Container, AnchorButton } from './styles';
 

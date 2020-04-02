@@ -1,71 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { IShowItem } from '../../types';
 import { PageContainer, Heading } from '../../components';
-import { RowContainer, ColumnContainer, Image } from './styles';
+import { RowContainer, ColumnContainer, Button, Image } from './styles';
+import { useShow, useCast } from '../../hooks';
+import { IPerson } from '../../types';
+import { stripHtml } from '../../helpers';
 
-interface IProps {
-  showItems: Array<IShowItem>;
-}
+export const ShowDetail: React.FC = () => {
+  let { showId } = useParams();
 
-export const ShowDetail: React.FC<IProps> = ({ showItems }) => {
-  const [cast, setCast] = useState([]);
+  const cast = useCast(showId);
 
-  let { movieId } = useParams();
+  const {
+    name,
+    image: { original: imgSrc },
+    summary,
+  } = useShow(showId);
 
-  const showItem = showItems.filter((s: IShowItem) => s.show.id === Number(movieId))[0];
-
-  const id = showItem && showItem.show.id;
-
-  const summary = showItem && showItem.show.summary;
-
-  const name = showItem && showItem.show.name;
-
-  const image = showItem && showItem.show.image && showItem.show.image.original;
-
-  console.log(name, summary);
-  useEffect(() => {
-    const fetchSearchInput = () => {
-      fetch(`http://api.tvmaze.com/shows/${id}/cast`, {
-        method: 'GET',
-      })
-        .then(async (result: any) => {
-          const cast = await result.json();
-          console.log(cast);
-          setCast(cast);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    };
-
-    fetchSearchInput();
-  }, [id]);
-
-  function stripHtml(summary: any) {
-    // Create a new div element
-    var temporalDivElement = document.createElement('div');
-    // Set the HTML content with the providen
-    temporalDivElement.innerHTML = summary;
-    // Retrieve the text property of the element (cross-browser support)
-    return temporalDivElement.textContent || temporalDivElement.innerText || '';
-  }
-
-  const summaryToText = stripHtml(summary);
+  const summaryToString = stripHtml(summary);
 
   return (
     <PageContainer>
       <RowContainer>
         <ColumnContainer>
-          <Image src={image} />
+          <Image src={imgSrc} />
           <Heading>Cast</Heading>
-          {cast.map(({ person }: any) => (
-            <span>{person.name}</span>
+          {cast.map(({ person }: IPerson) => (
+            <span key={person.id}>{person.name}</span>
           ))}
         </ColumnContainer>
         <ColumnContainer>
           <Heading>{name}</Heading>
-          {summaryToText}
+          <span>{summaryToString}</span>
+          <Button to="/shows" role="button">
+            Back to catalog
+          </Button>
         </ColumnContainer>
       </RowContainer>
     </PageContainer>

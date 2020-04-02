@@ -1,16 +1,23 @@
-interface ShowImage {
+interface IShowImage {
   original: string;
 }
 
-interface Show {
+export interface IShow {
   name: string;
   genres: Array<string> | [];
-  image?: ShowImage;
+  image: IShowImage;
   summary: string;
   id: number;
 }
 
 export interface IShowItem {
   score: number;
-  show: Show;
+  show: IShow;
+}
+
+export interface IPerson {
+  person: {
+    name: string;
+    id: number;
+  };
 }

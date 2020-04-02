@@ -2,13 +2,13 @@ import React from 'react';
 import { IShowItem } from '../../types';
 import { Container, Image, RowContainer, Row, Highlight, Button } from './styles';
 import placeholderImg from '../../images/placeholder-image.png';
+import { useRouteMatch } from 'react-router-dom';
 
 interface IProps {
   showItem: IShowItem;
-  url: string;
 }
 
-export const ShowItem: React.FC<IProps> = ({ showItem, url }) => {
+export const ShowItem: React.FC<IProps> = ({ showItem }) => {
   const {
     show: { name, genres, image, id },
   } = showItem;
@@ -16,6 +16,8 @@ export const ShowItem: React.FC<IProps> = ({ showItem, url }) => {
   const imgSrc = image && image.original;
 
   const splittedGenres = genres.join(', ');
+
+  let { url } = useRouteMatch();
 
   return (
     <>

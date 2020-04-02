@@ -12,7 +12,7 @@ export const Heading = styled.h1`
 `;
 
 export const Image = styled.img`
-  max-height: 500px;
+  min-height: 500px;
   max-width: 900px;
   object-fit: cover;
 `;
