@@ -12,11 +12,7 @@ export const ShowDetail: React.FC = () => {
 
   const cast = useCast(showId);
 
-  const {
-    name,
-    image: { original: imgSrc },
-    summary,
-  } = useShow(showId);
+  const { name, image, summary } = useShow(showId);
 
   const summaryToString = stripHtml(summary);
 
@@ -24,7 +20,7 @@ export const ShowDetail: React.FC = () => {
     <PageContainer>
       <RowContainer>
         <ColumnContainer>
-          <Image src={imgSrc || placeHolderImg} />
+          <Image src={image.original || placeHolderImg} />
           <Heading>Cast</Heading>
           {cast.map(({ person }: IPerson) => (
             <span key={person.id}>{person.name}</span>
