@@ -12,7 +12,7 @@ const AppContainer = styled.div`
   align-items: center;
 `;
 
-const App = () => (
+const App: React.FC = () => (
   <AppContainer>
     <GlobalStyle />
     <Header>

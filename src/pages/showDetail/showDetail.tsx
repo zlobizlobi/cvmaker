@@ -5,6 +5,7 @@ import { RowContainer, ColumnContainer, Button, Image } from './styles';
 import { useShow, useCast } from '../../hooks';
 import { IPerson } from '../../types';
 import { stripHtml } from '../../helpers';
+import placeHolderImg from '../../images/placeholder-image.png';
 
 export const ShowDetail: React.FC = () => {
   const { showId } = useParams();
@@ -23,7 +24,7 @@ export const ShowDetail: React.FC = () => {
     <PageContainer>
       <RowContainer>
         <ColumnContainer>
-          <Image src={imgSrc && imgSrc} />
+          <Image src={imgSrc || placeHolderImg} />
           <Heading>Cast</Heading>
           {cast.map(({ person }: IPerson) => (
             <span key={person.id}>{person.name}</span>
