@@ -20,7 +20,7 @@ export const ShowDetail: React.FC = () => {
     <PageContainer>
       <RowContainer>
         <ColumnContainer>
-          <Image src={image.original || placeHolderImg} />
+          <Image src={(image && image.original) || placeHolderImg} />
           <Heading>Cast</Heading>
           {cast.map(({ person }: IPerson) => (
             <span key={person.id}>{person.name}</span>
@@ -29,11 +29,9 @@ export const ShowDetail: React.FC = () => {
         <ColumnContainer>
           <Heading>{name}</Heading>
           <span>{summaryToString}</span>
-          <Button to="/shows" role="button">
-            Back to catalog
-          </Button>
         </ColumnContainer>
       </RowContainer>
+      <Button>Back to catalog</Button>
     </PageContainer>
   );
 };

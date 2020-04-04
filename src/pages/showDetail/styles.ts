@@ -4,7 +4,7 @@ import { AnchorButton } from '../../components';
 
 export const RowContainer = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
   ${media.md(`
     flex-direction: row;
@@ -17,17 +17,15 @@ export const ColumnContainer = styled.div`
   flex-direction: column;
 
   &:first-child {
-    margin: 30px 0 0 0;
+    margin: 0 0 30px 0;
   }
 
   ${media.md(`
     &:first-child {
-        margin: 0;
+        margin: 0 30px 0 0;
     }
 
-    &:last-child {
-        margin: 0 0 0 30px;
-    }
+ 
   `)}
 `;
 
@@ -40,6 +38,7 @@ export const Image = styled.img`
 
 export const Button = styled(AnchorButton).attrs({ to: '/shows', role: 'button' })`
   &&& {
-    align-self: center;
+    margin: 20px 0;
+    display: inline-block;
   }
 `;
